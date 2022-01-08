@@ -16,6 +16,7 @@ import java.time.Period;
 @Entity
 @Component
 @Table(name="CommentForum")
+@SecondaryTable(name="pastPapers",pkJoinColumns = @PrimaryKeyJoinColumn(name="Id",referencedColumnName = "id"))
 
 public class Student {
     @Id
@@ -33,6 +34,7 @@ public class Student {
     private String Email;
     @Column(name="Dob")
     private LocalDate Dob;
+
 
     @Transient
     private Integer age;
