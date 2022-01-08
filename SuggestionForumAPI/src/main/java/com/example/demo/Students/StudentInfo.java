@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/api/myApp")
+@RequestMapping(path="/myApp")
 public class StudentInfo {
     private final StudentCommentService studentCommentService;
 

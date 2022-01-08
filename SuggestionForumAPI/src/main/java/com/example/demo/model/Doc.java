@@ -1,6 +1,9 @@
 package com.example.demo.model;
 
+import com.example.demo.Students.Student;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="pastpapers")
@@ -10,6 +13,8 @@ public class Doc {
     @Id
 
     private Integer Id;
+    @ManyToMany(mappedBy ="doc")
+    private List<Student> stud;
 
     public String DocName;
 
