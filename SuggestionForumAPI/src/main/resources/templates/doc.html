@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Upload/Download</title>
+    <title>Spring Boot & Thymeleaf File Upload</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
-<div>
-    <h3>Upload MultipleFiles</h3>
-    <form>id="uploadFiles" name="UploadFiles" method="post" th:action=@{uploadFiles} encType="multipart/form-data"</form>
-    <input type="file" name="files" multiple required/>
-    <button type="submit">submit</button>
-</div>
-<div>
-    <h3>List of Documents</h3>
-    <table>
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>download</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="doc:${docs}"/>
-        <td th:text="doc:${doc.Id}"/>
-            <td th:text="doc:${doc.DocName}"/>
-            <td th:text="doc:${doc.Id}"/>
-            <td><a th:href="@{'/downloadFile/'+${doc.id}}">Download</a></td>
-        </tbody>
-    </table>
-</div>
+
+<section class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>Upload File Example</h2>
+                <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+                <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="file" name="file" class="form-control-file">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload File</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>

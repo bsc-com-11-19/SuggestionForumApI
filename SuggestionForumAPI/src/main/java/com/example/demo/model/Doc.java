@@ -23,6 +23,9 @@ public class Doc {
     @Lob
     private byte[] data;
 
+    public Doc() {
+    }
+
     public Doc(String docName, String docType, byte[] data) {
         super();
         DocName = docName;

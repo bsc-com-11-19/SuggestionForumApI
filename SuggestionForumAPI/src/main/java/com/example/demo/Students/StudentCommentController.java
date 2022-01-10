@@ -8,11 +8,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path="/myApp")
-public class StudentInfo {
+public class StudentCommentController {
     private final StudentCommentService studentCommentService;
 
     @Autowired
-    public StudentInfo(StudentCommentService studentCommentService) {
+    public StudentCommentController(StudentCommentService studentCommentService) {
         this.studentCommentService = studentCommentService;
     }
 
