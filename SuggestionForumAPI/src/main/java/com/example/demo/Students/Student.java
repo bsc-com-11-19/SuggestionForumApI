@@ -3,13 +3,13 @@ package com.example.demo.Students;
 
 
 
-import com.example.demo.model.Doc;
+
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.List;
+
 
 
 @Entity
@@ -18,13 +18,12 @@ import java.util.List;
 
 
 public class Student {
-    @JoinColumn(name="id")
+
     @Id
 
    @Column(name="id")
     private Long id;
-    @ManyToMany
-    private List<Doc> doc;
+
     @Column(name="name")
     private String Name;
     @Column(name="regNo")
