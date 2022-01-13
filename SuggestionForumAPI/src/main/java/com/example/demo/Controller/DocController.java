@@ -27,7 +27,7 @@ public class DocController {
         return "docs";
     }
     @RequestMapping("/upload")
-    @PostMapping("/Upload")
+    @PostMapping("/")
     public String UploadMultipleFiles(@RequestParam("file") MultipartFile[] files){
     for(MultipartFile file:files){
         docStorageService.saveFile(file);
@@ -36,7 +36,7 @@ public class DocController {
 
     }
     @RequestMapping("download")
-    @GetMapping("/downloadFile/{fileId}")
+    @GetMapping("/download/{fileId}")
     public ResponseEntity<Resource>downloadFile(@PathVariable Integer fileId){
         Doc doc=docStorageService.getFile(fileId).get();
         return ResponseEntity.ok().
