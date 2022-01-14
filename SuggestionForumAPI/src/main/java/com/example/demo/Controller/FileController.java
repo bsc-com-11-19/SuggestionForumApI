@@ -1,7 +1,7 @@
 package com.example.demo.Controller;
 
 
-import com.example.demo.Service.FileDB;
+import com.example.demo.Service.FileDatabase;
 import com.example.demo.model.FileStorageService;
 import com.example.demo.response.ResponseFile;
 import com.example.demo.response.ResponseMessage;
@@ -59,10 +59,10 @@ public class FileController {
 
     @GetMapping("/files/{id}")
     public ResponseEntity<byte[]> getFile(@PathVariable String id) {
-        FileDB fileDB = storageService.getFile(id);
+        FileDatabase fileDatabase = storageService.getFile(id);
 
         return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDB.getName() + "\"")
-                .body(fileDB.getData());
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDatabase.getName() + "\"")
+                .body(fileDatabase.getData());
     }
 }

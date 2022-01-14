@@ -10,7 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "files")
-public class FileDB {
+public class FileDatabase {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -23,10 +23,10 @@ public class FileDB {
     @Lob
     private byte[] data;
 
-    public FileDB() {
+    public FileDatabase() {
     }
 
-    public FileDB(String name, String type, byte[] data) {
+    public FileDatabase(String name, String type, byte[] data) {
         this.name = name;
         this.type = type;
         this.data = data;

@@ -3,8 +3,8 @@ package com.example.demo.model;
 import java.io.IOException;
 import java.util.stream.Stream;
 
-import com.example.demo.Repository.FileDBRepository;
-import com.example.demo.Service.FileDB;
+import com.example.demo.Repository.FileStorageRepository;
+import com.example.demo.Service.FileDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -15,20 +15,20 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileStorageService {
 
     @Autowired
-    private FileDBRepository fileDBRepository;
+    private FileStorageRepository fileStorageRepository;
 
-    public FileDB store(MultipartFile file) throws IOException {
+    public FileDatabase store(MultipartFile file) throws IOException {
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-        FileDB FileDB = new FileDB(fileName, file.getContentType(), file.getBytes());
+        FileDatabase FileDatabase = new FileDatabase(fileName, file.getContentType(), file.getBytes());
 
-        return fileDBRepository.save(FileDB);
+        return fileStorageRepository.save(FileDatabase);
     }
 
-    public FileDB getFile(String id) {
-        return fileDBRepository.findById(id).get();
+    public FileDatabase getFile(String id) {
+        return fileStorageRepository.findById(id).get();
     }
 
-    public Stream<FileDB> getAllFiles() {
-        return fileDBRepository.findAll().stream();
+    public Stream<FileDatabase> getAllFiles() {
+        return fileStorageRepository.findAll().stream();
     }
 }
