@@ -14,25 +14,28 @@ import java.time.Period;
 
 @Entity
 @Component
-@Table(name="CommentForum")
+@Table(name="commentForum")
 
 
 public class Student {
 
     @Id
+    @SequenceGenerator(name="studentdatabase_sequence",
+    sequenceName = "studentdatabase",allocationSize = 1)
 
-   @Column(name="id")
+
+
     private Long id;
 
-    @Column(name="name")
+
     private String Name;
-    @Column(name="regNo")
+
     private String RegNo;
-    @Column(name="Comment")
+
     private String Comment;
-    @Column(name="Email")
+
     private String Email;
-    @Column(name="Dob")
+
     private LocalDate Dob;
 
 
