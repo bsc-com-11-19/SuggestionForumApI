@@ -13,10 +13,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 
-public class DemoApplication {
+public class SuggestionForumApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(SuggestionForumApplication.class, args);
 	}
 
 
